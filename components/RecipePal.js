@@ -108,7 +108,8 @@ export default function RecipePal() {
 
     const promptText = `Please write down the recipe for the ${recipe} dish, providing a clear, concise, 
                             and easy-to-follow step-by-step roadmap. Include the temperature and estimated time for each step, 
-                            as well as instructions on when to proceed to the next step, indicating the specific number of seconds or minutes in a bullet list`;
+                            as well as instructions on when to proceed to the next step, indicating the specific number of seconds or minutes in a bullet list. 
+                            Summarize the recipe in maximum 300 words`;
     try {
       const response = await axios.post("/api/recipe", { prompt: promptText });
       const generatedRecipe = response.data.recipe;
@@ -253,7 +254,7 @@ export default function RecipePal() {
             </button>
           </div>
         )}
-        
+
         {randomDish === 1 && (
           <button className={styles.button} onClick={generateRandomDish}>
             <FontAwesomeIcon
