@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Image from "next/image";
-import styles from "./recipepal.module.css";
+import styles from "./recipepal.module.css"; 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { faPepperHot } from "@fortawesome/free-solid-svg-icons";
 import { faGift } from "@fortawesome/free-solid-svg-icons";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 export default function RecipePal() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -167,7 +165,8 @@ export default function RecipePal() {
 
     const promptText = `Please write down the recipe for the ${recipe} dish, providing a clear, concise, 
                             and easy-to-follow step-by-step roadmap. Include the temperature and estimated time for each step, 
-                            as well as instructions on when to proceed to the next step, indicating the specific number of seconds or minutes in a bullet list`;
+                            as well as instructions on when to proceed to the next step, indicating the specific number of seconds or minutes in a bullet list.
+                            Summarize the recipe in maximum 200 words`;
     try {
       const response = await axios.post("/api/recipe", { prompt: promptText });
       const generatedRecipe = response.data.recipe;
@@ -190,10 +189,10 @@ export default function RecipePal() {
   const generateRandomDish = async () => {
     setLoading(true);
 
-      const promptText = `You are a random dish generator. 
-        I am looking for a surprising dish to prepare for an occasion. 
-        Please suggest a name for a random dish that combines ingredients and flavors. 
-        Provide me only with the name of the dish`;
+      const promptText = `You are a random dish generator.
+                          I am looking for a random dish to prepare.
+                          Please suggest a name for a random dish.
+                          Provide me only with the name of the dish.`;
     
       try {
         const response = await axios.post("/api/single", { prompt: promptText });
@@ -212,7 +211,8 @@ export default function RecipePal() {
     setLoading(true);
     const promptText = `Please write down the recipe for the ${recipe} dish, providing a clear, concise, 
                             and easy-to-follow step-by-step roadmap. Include the temperature and estimated time for each step, 
-                            as well as instructions on when to proceed to the next step, indicating the specific number of seconds or minutes in a bullet list`;
+                            as well as instructions on when to proceed to the next step, indicating the specific number of seconds or minutes in a bullet list.
+                            Summarize the recipe in maximum 200 words`;
     try {
       const response = await axios.post("/api/recipe", { prompt: promptText });
       const generatedRecipe = response.data.recipe;
