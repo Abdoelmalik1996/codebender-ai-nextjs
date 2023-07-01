@@ -236,6 +236,7 @@ export default function RecipePal() {
             <span>Cooking Time</span>
           </button>
         )}
+
         {limitedIngredients === 1 && (
           <div className={styles.buttonContainer}>
             <button
@@ -252,6 +253,7 @@ export default function RecipePal() {
             </button>
           </div>
         )}
+        
         {randomDish === 1 && (
           <button className={styles.button} onClick={generateRandomDish}>
             <FontAwesomeIcon
