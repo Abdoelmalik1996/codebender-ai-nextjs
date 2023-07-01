@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { faPepperHot } from "@fortawesome/free-solid-svg-icons";
 import { faGift } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 export default function RecipePal() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -19,6 +20,19 @@ export default function RecipePal() {
   const [limitedTime, setLimitedTime] = useState(1);
   const [limitedIngredients, setLimitedIngredients] = useState(1);
   const [randomDish, setRandomDish] = useState(1);
+
+  const LoadingIndicator = () => {
+    return (
+        <span className={styles.loading}></span>
+    );
+  };
+
+  const handleRandomDishOption = () => {
+    setLimitedTime(0);
+    setLimitedIngredients(0);
+    generateRandomDish()
+    
+  }
 
   const handleLimitedOption = () => {
     setLimitedTime(2);
@@ -174,28 +188,28 @@ export default function RecipePal() {
   };
 
   const generateRandomDish = async () => {
-    setLimitedTime(0);
-    setLimitedIngredients(0);
     setLoading(true);
 
-    const promptText = `You are a random dish generator. 
-                            I am looking for a surprising dish to prepare for a occasion. 
-                            Please suggest a name for a random dish that combines ingredients and flavors. 
-                            Provide me only with the name of the dish`;
-
-    try {
-      const response = await axios.post("/api/single", { prompt: promptText });
-      const generatedDish = response.data.recipes;
-      setRecipes(generatedDish);
-      setRandomDish(2);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
+      const promptText = `You are a random dish generator. 
+        I am looking for a surprising dish to prepare for an occasion. 
+        Please suggest a name for a random dish that combines ingredients and flavors. 
+        Provide me only with the name of the dish`;
+    
+      try {
+        const response = await axios.post("/api/single", { prompt: promptText });
+        const generatedDish = response.data.recipes;
+        setRecipes(generatedDish);
+        setRandomDish(2);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
   };
+  
 
   const generateRandomRecipe = async (recipe) => {
+    setLoading(true);
     const promptText = `Please write down the recipe for the ${recipe} dish, providing a clear, concise, 
                             and easy-to-follow step-by-step roadmap. Include the temperature and estimated time for each step, 
                             as well as instructions on when to proceed to the next step, indicating the specific number of seconds or minutes in a bullet list`;
@@ -213,11 +227,14 @@ export default function RecipePal() {
       setRecipeValue(formattedRecipe);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <section className={styles.section}>
+      {loading && <LoadingIndicator />}
       {limitedTime === 1 && limitedIngredients === 1 && randomDish === 1 && (
         <h1>Select your plan</h1>
       )}
@@ -255,8 +272,9 @@ export default function RecipePal() {
           </div>
         )}
 
-        {randomDish === 1 && (
-          <button className={styles.button} onClick={generateRandomDish}>
+        {limitedTime === 1 && limitedIngredients === 1 && randomDish === 1 && (
+          
+          <button className={styles.button} onClick={handleRandomDishOption}>
             <FontAwesomeIcon
               icon={faGift}
               style={{ color: "#68B9BD" }}
@@ -264,6 +282,12 @@ export default function RecipePal() {
               shake
             />
             <span>Select your random dish</span>
+
+            {loading && (
+              <div className={styles.loading}>
+                <div className={styles.spinner} />
+              </div>
+            )}
           </button>
         )}
       </div>
@@ -576,6 +600,7 @@ export default function RecipePal() {
               <div className={styles.spinner} />
             </div>
           )}
+
           {recipeValue.length > 0 && (
             <div className={styles.finalResult}>
               <h1>Recipe ingredients:</h1>
