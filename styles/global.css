@@ -1,0 +1,41 @@
+html,
+body {
+  font-family: 'Poiret One', cursive;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+
+  background-image: url(../public/img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: inherit;
+  background-size: cover;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+h3 {
+  font-weight: 300;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

@@ -1,0 +1,273 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section {
+  width: 100%;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+
+.section > h1 {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  margin-bottom: 2rem;
+}
+
+.h4 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  margin-bottom: 2rem;
+}
+
+.firstStep {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 1rem;
+  border: none;
+  background-color: #fff;
+  color: #3d373f;
+  cursor: pointer;
+  transition: 0.1s ease;
+  box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+  font-family: 'Poiret One', cursive;
+  font-size: 500;
+}
+
+.button:hover {
+  rotate: 0deg;
+  transform:scale(1.1);
+  box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+.button span {
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding-top: 3rem;
+}
+
+.stepBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.stepBox > input {
+  margin-right: 1rem;
+}
+
+.stepBox > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: #3d373f;
+  background-color: #F1F0FF;
+  cursor: pointer;
+}
+
+.stepBox > .pResult {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.pResult {
+  background-color: #ffffff;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.inputContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.inputContainer > textarea {
+  width: 30rem;
+}
+
+.dropDown {
+  width: 15rem;
+  border-color: #F1F0FF;
+  padding: 0.5rem;
+  border-style:solid;
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Poiret One', cursive;
+}
+
+.inputBox {
+  width: 15rem;
+  border-color: #F1F0FF;
+  padding: 0.5rem;
+  border-style:solid;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Poiret One', cursive;
+  flex: 1;
+}
+
+.buttonSubmit {
+  padding: 0.7rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  transition: background-color 0.2s ease;
+  background-color: #4798da;
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Poiret One', cursive;
+  cursor: pointer;
+}
+
+.buttonSubmit:hover {
+  transition: background-color 0.2s ease;
+  background-color: #fff;
+  color: #4798da;
+}
+
+.buttonResult {
+  padding: 0.7rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  transition: background-color 0.2s ease;
+  background-color: #68B9BD;
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Poiret One', cursive;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.buttonResult:hover {
+  transition: background-color 0.2s ease;
+  background-color: #fff;
+  color: #68B9BD;
+}
+
+.buttonGoBack {
+  padding: 0.7rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 0.3rem !important;
+  border: none;
+  transition: background-color 0.2s ease;
+  background-color: #4798da !important;
+  color: #fff !important;
+  font-weight: bold;
+  font-family: 'Poiret One', cursive;
+  cursor: pointer;
+}
+
+.buttonGoBack:hover {
+  transition: background-color 0.2s ease;
+  background-color: #fff !important;
+  color: #4798da !important;
+}
+
+.buttonGenerateDish {
+  border-radius: 0.2rem !important;
+  padding: 0.7rem !important;
+  transition: background-color 0.2s ease;
+  font-family: 'Poiret One', cursive;
+  background-color: #4798da !important;
+  color: #fff !important;
+}
+
+.buttonGenerateDish:hover {
+  background-color: #fff !important;
+  color: #4798da !important;
+}
+
+.stepBox .buttonGoBack {
+  margin-left: -33rem;
+}
+
+.finalResult {
+  background-position: center;
+  background-image: linear-gradient(to bottom, #F1F0FF 100%, transparent 100%);
+  border-radius: 0.5rem;
+  padding: 1rem;;
+  width: 50%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.finalResult > h1 {
+  font-size: 2rem;
+}
+
+.finalResult > ul {
+  list-style-type: disc;
+  margin-left: 2rem;
+  padding-left: 2rem;
+}
+
+.finalResult > ul > li {
+  margin-bottom: 5px;
+}
+
+.finalResult > ul > li::before {
+  content: none;
+}
+
+.result {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 1rem solid #f3f3f3;
+  border-top: 1rem solid #68B9BD;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+}
