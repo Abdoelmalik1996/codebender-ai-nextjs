@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         }
       ],
       temperature: 0,
-      max_tokens: 300,
+      max_tokens: 200,
       presence_penalty: 0,
       frequency_penalty: 0.5,
     });
